@@ -22,7 +22,7 @@ export default function Home() {
     }, 1200);
   }, []);
   return (
-    <main className={styles.main}>
+    <Main>
       <TitleWrapper>
         <Title2 style={notoSerif.style} show={titleShow2}>
           WE ARE
@@ -31,9 +31,18 @@ export default function Home() {
           BRINICLE RAIN
         </Title>
       </TitleWrapper>
-    </main>
+    </Main>
   );
 }
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 10vw;
+  min-height: 100vh;
+`;
 
 const TitleWrapper = styled.div`
   display: flex;
@@ -68,8 +77,8 @@ const TitleWrapper = styled.div`
 
 const Title = styled.div<{ show: boolean }>`
   position: relative;
-  font-size: 200px;
-  line-height: 1;
+  font-size: 20vw;
+  line-height: 0.8;
   left: ${({ show }) => (show ? "0" : "-100px")};
   opacity: ${({ show }) => (show ? "1" : "0")};
   transition-duration: 1.5s;
@@ -81,7 +90,7 @@ const Title = styled.div<{ show: boolean }>`
 
 const Title2 = styled.div<{ show: boolean }>`
   position: relative;
-  font-size: 100px;
+  font-size: 10vw;
   line-height: 1;
   top: ${({ show }) => (show ? "0" : "-100px")};
   opacity: ${({ show }) => (show ? "1" : "0")};
