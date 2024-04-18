@@ -3,6 +3,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  transpilePackages: ["three"],
 };
 
 export default nextConfig;
