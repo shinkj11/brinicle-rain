@@ -1,11 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import styles from "./page.module.css";
 import styled from "styled-components";
 import { Bebas_Neue } from "next/font/google";
 import { Noto_Serif_Display } from "next/font/google";
 import { useEffect, useState } from "react";
+import CanvasWrapper from "./components/3d/CanvasWrapper";
+import BoxTest from "./components/3d/BoxTest";
+import MainObj from "./components/3d/MainObj";
 
 const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"] });
 const notoSerif = Noto_Serif_Display({ weight: "400", subsets: ["latin"] });
@@ -23,6 +24,9 @@ export default function Home() {
   }, []);
   return (
     <Main>
+      <CanvasWrapper>
+        <MainObj />
+      </CanvasWrapper>
       <TitleWrapper>
         <Title2 style={notoSerif.style} show={titleShow2}>
           WE ARE
