@@ -16,8 +16,8 @@ const CanvasWrapper: React.FC<CanvasWrapperProps> = ({ children }) => {
 const StyledCanvasWrapper = styled.div`
   position: absolute;
   width: 100vw;
-  height: calc(100vh - 3rem);
-  z-index: 1000;
+  height: 100vh;
+  /* z-index: 1000; */
 `;
 
 export default CanvasWrapper;

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import CanvasWrapper from "./components/3d/CanvasWrapper";
 import BoxTest from "./components/3d/BoxTest";
 import MainObj from "./components/3d/MainObj";
+import BackGroundObj from "./components/3d/BackGroundObj";
 
 const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"] });
 const notoSerif = Noto_Serif_Display({ weight: "400", subsets: ["latin"] });
@@ -25,6 +26,7 @@ export default function Home() {
   return (
     <Main>
       <CanvasWrapper>
+        <BackGroundObj />
         <MainObj />
       </CanvasWrapper>
       <TitleWrapper>
@@ -44,7 +46,7 @@ const Main = styled.main`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 10vw;
+  padding: 0 10vw;
   min-height: 100vh;
 `;
 
@@ -53,6 +55,7 @@ const TitleWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   justify-self: center;
+  margin-top: 3rem;
 
   @keyframes opacInFall {
     from {
