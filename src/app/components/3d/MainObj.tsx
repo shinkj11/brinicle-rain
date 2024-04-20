@@ -5,7 +5,13 @@ import {
   shaderMaterial,
   useHelper,
 } from "@react-three/drei";
-import { extend, useFrame, useLoader, useThree } from "@react-three/fiber";
+import {
+  Object3DNode,
+  extend,
+  useFrame,
+  useLoader,
+  useThree,
+} from "@react-three/fiber";
 import { RefObject, useRef } from "react";
 import { DirectionalLight, MathUtils } from "three";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
@@ -31,11 +37,10 @@ extend({ SphereShaderMaterial });
 
 declare module "@react-three/fiber" {
   interface ThreeElements {
-    sphereShaderMaterial: typeof SphereShaderMaterial & {
-      ref:
-        | RefObject<typeof THREE.ShaderMaterial & { [key: string]: any }>
-        | undefined;
-    };
+    sphereShaderMaterial: Object3DNode<
+      typeof SphereShaderMaterial,
+      typeof SphereShaderMaterial
+    >;
   }
 }
 
@@ -45,7 +50,7 @@ const MainObj: React.FC = () => {
   const torus2Obj = useLoader(GLTFLoader, "/Torus1M.glb");
   const dLight1 = useRef<DirectionalLight>(null);
   const dLight2 = useRef<DirectionalLight>(null);
-  const sphereRef = useRef<THREE.ShaderMaterial & { [key: string]: any }>(null);
+  const sphereRef = useRef<any>(null);
   const three = useThree();
 
   useFrame((state) => {

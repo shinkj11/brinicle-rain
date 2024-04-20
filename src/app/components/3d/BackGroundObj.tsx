@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { shaderMaterial } from "@react-three/drei";
-import { extend, useFrame, useThree } from "@react-three/fiber";
+import { Object3DNode, extend, useFrame, useThree } from "@react-three/fiber";
 import glsl from "glslify";
 import {
   fragmentShader,
@@ -26,14 +26,15 @@ extend({ WaveShaderMaterial });
 
 declare module "@react-three/fiber" {
   interface ThreeElements {
-    waveShaderMaterial: typeof WaveShaderMaterial & {
-      ref: RefObject<THREE.ShaderMaterial & { [key: string]: any }> | undefined;
-    };
+    waveShaderMaterial: Object3DNode<
+      typeof WaveShaderMaterial,
+      typeof WaveShaderMaterial
+    >;
   }
 }
 
 const Wave = () => {
-  const ref = useRef<THREE.ShaderMaterial & { [key: string]: any }>(null);
+  const ref = useRef<any>(null);
   const three = useThree();
   useFrame(({ clock }) => {
     if (ref.current) {
