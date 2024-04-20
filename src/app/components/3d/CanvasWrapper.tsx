@@ -3,21 +3,25 @@ import styled from "styled-components";
 
 interface CanvasWrapperProps {
   children?: React.ReactNode;
+  zIndex?: number;
 }
 
-const CanvasWrapper: React.FC<CanvasWrapperProps> = ({ children }) => {
+const CanvasWrapper: React.FC<CanvasWrapperProps> = ({
+  children,
+  zIndex = 0,
+}) => {
   return (
-    <StyledCanvasWrapper>
+    <StyledCanvasWrapper zIndex={zIndex}>
       <Canvas>{children}</Canvas>
     </StyledCanvasWrapper>
   );
 };
 
-const StyledCanvasWrapper = styled.div`
+const StyledCanvasWrapper = styled.div<{ zIndex: number }>`
   position: absolute;
   width: 100vw;
   height: 100vh;
-  /* z-index: 1000; */
+  z-index: ${({ zIndex }) => zIndex};
 `;
 
 export default CanvasWrapper;

@@ -47,10 +47,6 @@ const Wave = () => {
     }
   });
 
-  useEffect(() => {
-    console.log(ref.current.iResolution);
-  }, [ref]);
-
   return (
     <mesh position={[0, 0, -5]}>
       <planeGeometry args={[40, 30]} />

@@ -8,6 +8,7 @@ import CanvasWrapper from "./components/3d/CanvasWrapper";
 import BoxTest from "./components/3d/BoxTest";
 import MainObj from "./components/3d/MainObj";
 import BackGroundObj from "./components/3d/BackGroundObj";
+import { OrbitControls } from "@react-three/drei";
 
 const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"] });
 const notoSerif = Noto_Serif_Display({ weight: "400", subsets: ["latin"] });
@@ -27,7 +28,10 @@ export default function Home() {
     <Main>
       <CanvasWrapper>
         <BackGroundObj />
+      </CanvasWrapper>
+      <CanvasWrapper zIndex={100}>
         <MainObj />
+        <OrbitControls />
       </CanvasWrapper>
       <TitleWrapper>
         <Title2 style={notoSerif.style} show={titleShow2}>

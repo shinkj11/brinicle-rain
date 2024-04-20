@@ -77,6 +77,12 @@ const MainObj: React.FC = () => {
   const getObjSize = () => {
     if (three.size.width < 600) {
       return new THREE.Vector3(0.7, 0.7, 0.7);
+    } else if (three.size.width > 1080) {
+      return new THREE.Vector3(
+        three.size.width * 0.0007,
+        three.size.width * 0.0007,
+        three.size.width * 0.0007
+      );
     } else {
       return new THREE.Vector3(
         three.size.width * 0.001,

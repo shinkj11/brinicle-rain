@@ -92,7 +92,8 @@ export const fragmentShader3 = glsl`
       vec3 ray = normalize(vec3(uv,.1));
       vec3 color = 0.5 + 1. * cos(vec3(0,2,4)*hue1 + hue2 + fbm(ray) * 20.);
 
-      fragColor = vec4(color,1.0);
+      fragColor = vec4(color,1);
+      fragCoord += .5 * iResolution.xy;
   }
 
   void main() {
