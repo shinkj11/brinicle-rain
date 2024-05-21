@@ -62,6 +62,7 @@ export const fragmentShader3 = glsl`
   uniform float iTime;
   uniform float hue1;
   uniform float hue2;
+  uniform float speed;
   varying vec2 vUv;
   
   float smin( float d1, float d2, float k )
@@ -79,7 +80,7 @@ export const fragmentShader3 = glsl`
       for (float i = 0.; i < 34.; ++i)
       {
           p.z += (result)*.6;
-          p.z += iTime*.1;
+          p.z += iTime*speed;
           result = smin(result, abs(gyroid(p/a)*a), 1.5*a);
           a /= 1.6;
       }
