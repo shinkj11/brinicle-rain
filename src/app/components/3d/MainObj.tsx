@@ -12,7 +12,7 @@ import {
   useLoader,
   useThree,
 } from "@react-three/fiber";
-import { RefObject, useRef } from "react";
+import { RefObject, Suspense, useRef } from "react";
 import { DirectionalLight, MathUtils } from "three";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import {
@@ -110,105 +110,107 @@ const MainObj: React.FC<MainObjProps> = ({ isRenderer = false }) => {
 
   return (
     <>
-      <Environment
-        // files={"/kloppenheim_02_puresky_4k.exr"}
-        preset="night"
-        blur={0.5}
-        backgroundIntensity={0.1}
-        backgroundBlurriness={0.1}
-        environmentIntensity={0.5}
-      >
-        {isRenderer ? (
-          <>
-            <Lightformer
-              color={"#dadada"}
-              intensity={1}
-              rotation-x={Math.PI / 2}
-              position={[0, 5, -9]}
-              scale={[100, 100, 100]}
-              form={"circle"}
-            />
-            <Lightformer
-              color={"#740038"}
-              intensity={0.5}
-              rotation-x={Math.PI / 2}
-              rotation-z={Math.PI / 2}
-              position={[30, -5, -30]}
-              scale={[100, 100, 100]}
-              form={"circle"}
-            />
-          </>
-        ) : (
-          <>
-            <Lightformer
-              color={"#dadada"}
-              intensity={1}
-              rotation-x={Math.PI / 2}
-              position={[0, 5, -9]}
-              scale={[10, 10, 10]}
-              form={"circle"}
-            />
-            <Lightformer
-              color={"#740038"}
-              intensity={0.5}
-              rotation-x={Math.PI / 2}
-              rotation-z={Math.PI / 2}
-              position={[30, -5, -30]}
-              scale={[10, 10, 10]}
-              form={"circle"}
-            />
-          </>
-        )}
-      </Environment>
-      <group
-        name={"objGroup"}
-        rotation={[0, 0, 0]}
-        position={getObjPosition()}
-        scale={getObjSize()}
-      >
-        <mesh name={"sphereObj"} position={[0, -0.1, 0]}>
-          <sphereGeometry args={[0.5]} />
-          <sphereShaderMaterial ref={sphereRef} />
-        </mesh>
-        {/* <primitive name={"sphereObj"} object={sphereObj.scene} scale={0.003} /> */}
-        <primitive name={"nullObj"} object={nullObj.scene} scale={0.003} />
-        <primitive name={"torus1"} object={torus1Obj.scene} scale={0.003} />
-        <primitive name={"torus2"} object={torus2Obj.scene} scale={0.003} />
-      </group>
-      <hemisphereLight args={["#00f", "#f00", 10]} scale={[10, 10, 10]} />
-      <spotLight
-        color={"#071de8"}
-        intensity={30}
-        power={100}
-        position={[0, 10, 0]}
-        distance={0}
-        angle={Math.PI / 2.1}
-        scale={[1, 1, 1]}
-      />
-      <directionalLight
-        ref={dLight1}
-        color={"#071de8"}
-        position={[0, -10, 0]}
-        intensity={30}
-        // target={objRef}
-        visible={false}
-        scale={[100, 100, 100]}
-      />
-      <directionalLight
-        ref={dLight2}
-        color={"#8532a8"}
-        position={[-5, 10, 0]}
-        intensity={0.5}
-        scale={[300, 300, 300]}
-        visible={false}
-      />
-      <directionalLight
-        color={"#fff"}
-        position={[-5, -10, -5]}
-        intensity={0.5}
-        scale={[300, 300, 300]}
-        visible={false}
-      />
+      <Suspense fallback={<></>}>
+        <Environment
+          // files={"/kloppenheim_02_puresky_4k.exr"}
+          preset="night"
+          blur={0.5}
+          backgroundIntensity={0.1}
+          backgroundBlurriness={0.1}
+          environmentIntensity={0.5}
+        >
+          {isRenderer ? (
+            <>
+              <Lightformer
+                color={"#dadada"}
+                intensity={1}
+                rotation-x={Math.PI / 2}
+                position={[0, 5, -9]}
+                scale={[100, 100, 100]}
+                form={"circle"}
+              />
+              <Lightformer
+                color={"#740038"}
+                intensity={0.5}
+                rotation-x={Math.PI / 2}
+                rotation-z={Math.PI / 2}
+                position={[30, -5, -30]}
+                scale={[100, 100, 100]}
+                form={"circle"}
+              />
+            </>
+          ) : (
+            <>
+              <Lightformer
+                color={"#dadada"}
+                intensity={1}
+                rotation-x={Math.PI / 2}
+                position={[0, 5, -9]}
+                scale={[10, 10, 10]}
+                form={"circle"}
+              />
+              <Lightformer
+                color={"#740038"}
+                intensity={0.5}
+                rotation-x={Math.PI / 2}
+                rotation-z={Math.PI / 2}
+                position={[30, -5, -30]}
+                scale={[10, 10, 10]}
+                form={"circle"}
+              />
+            </>
+          )}
+        </Environment>
+        <group
+          name={"objGroup"}
+          rotation={[0, 0, 0]}
+          position={getObjPosition()}
+          scale={getObjSize()}
+        >
+          <mesh name={"sphereObj"} position={[0, -0.1, 0]}>
+            <sphereGeometry args={[0.5]} />
+            <sphereShaderMaterial ref={sphereRef} />
+          </mesh>
+          {/* <primitive name={"sphereObj"} object={sphereObj.scene} scale={0.003} /> */}
+          <primitive name={"nullObj"} object={nullObj.scene} scale={0.003} />
+          <primitive name={"torus1"} object={torus1Obj.scene} scale={0.003} />
+          <primitive name={"torus2"} object={torus2Obj.scene} scale={0.003} />
+        </group>
+        <hemisphereLight args={["#00f", "#f00", 10]} scale={[10, 10, 10]} />
+        <spotLight
+          color={"#071de8"}
+          intensity={30}
+          power={100}
+          position={[0, 10, 0]}
+          distance={0}
+          angle={Math.PI / 2.1}
+          scale={[1, 1, 1]}
+        />
+        <directionalLight
+          ref={dLight1}
+          color={"#071de8"}
+          position={[0, -10, 0]}
+          intensity={30}
+          // target={objRef}
+          visible={false}
+          scale={[100, 100, 100]}
+        />
+        <directionalLight
+          ref={dLight2}
+          color={"#8532a8"}
+          position={[-5, 10, 0]}
+          intensity={0.5}
+          scale={[300, 300, 300]}
+          visible={false}
+        />
+        <directionalLight
+          color={"#fff"}
+          position={[-5, -10, -5]}
+          intensity={0.5}
+          scale={[300, 300, 300]}
+          visible={false}
+        />
+      </Suspense>
     </>
   );
 };

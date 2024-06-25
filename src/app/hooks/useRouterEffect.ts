@@ -1,7 +1,8 @@
 import { useRouter } from "next/navigation";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { pageAtom } from "../store/pageAtom";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
+import { Router } from "next/router";
 
 export const useRouterEffect = () => {
   const router = useRouter();
@@ -10,13 +11,17 @@ export const useRouterEffect = () => {
   const [isPending, startTransition] = useTransition();
 
   const push = (path: string, delay: number = 0) => {
-    // startTransition(() => {
-    setPageState((org) => ({ ...org, isPageChanging: true }));
-    setTimeout(() => {
+    const delayFunction = (ms: number) =>
+      new Promise((resolve) => setTimeout(resolve, ms));
+
+    startTransition(async () => {
+      setPageState((org) => ({ ...org, isPageChanging: true }));
+      router.prefetch(path);
+      await delayFunction(delay);
+      await delayFunction(500);
       router.push(path);
       setPageState((org) => ({ ...org, isPageChanging: false }));
-    }, delay);
-    // });
+    });
   };
 
   useEffect(() => {

@@ -25,7 +25,7 @@ const Header = () => {
           height={isSmall ? 40 : 70}
         />
         <Typo
-          onClick={() => push("/", 1000)}
+          onClick={() => push("/", 500)}
           show={show}
           type={isSmall ? "smallHeader" : "header2"}
           cursorPointer

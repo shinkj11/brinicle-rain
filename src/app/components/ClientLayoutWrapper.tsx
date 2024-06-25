@@ -13,9 +13,6 @@ const ClientLayoutWrapper = ({
 }>) => {
   const pathName = usePathname();
 
-  useEffect(() => {
-    console.log("pathName", pathName);
-  }, [pathName]);
   return (
     <RecoilRoot>
       <BackgroundTemplate />

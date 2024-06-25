@@ -7,11 +7,12 @@ import CanvasWrapper from "./components/3d/CanvasWrapper";
 import MainObj from "./components/3d/MainObj";
 import { useRouterEffect } from "./hooks/useRouterEffect";
 import Typo from "./components/Typo";
+import { media } from "./lib/media";
 
 const notoSerif = Noto_Serif_Display({ weight: "400", subsets: ["latin"] });
 
 export default function Home() {
-  const { push, isPageChanging } = useRouterEffect();
+  const { push, isPageChanging, show } = useRouterEffect();
   const [titleShow2, setTitleShow2] = useState<boolean>(false);
   const [titleShow, setTitleShow] = useState<boolean>(false);
   const [isAboutClicked, setIsAboutClicked] = useState<boolean>(false);
@@ -87,7 +88,10 @@ const Main = styled.main`
   justify-content: space-between;
   align-items: center;
   /* padding: 0 10vw; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  ${media.small`
+    height: 90vh;
+  `}
 `;
 
 const TextWrapper = styled.div`
