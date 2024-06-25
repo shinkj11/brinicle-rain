@@ -59,16 +59,30 @@ const Wave: React.FC<WaveProps> = ({
         1
       );
       if (isPageChanging) {
-        if (ref.current.hue1 < 7) ref.current.hue1 += 0.001;
-        if (ref.current.hue2 > 2) ref.current.hue2 -= 0.001;
-        if (ref.current.speed < 0.5) ref.current.speed += 0.0005;
+        if (ref.current.hue1 < 7) ref.current.hue1 += 0.005;
+        if (ref.current.hue2 > 2) ref.current.hue2 -= 0.005;
+        // if (ref.current.speed < 0.5) ref.current.speed += 0.0005;
       } else {
-        if (ref.current.hue1 > hue1) ref.current.hue1 -= 0.001;
-        if (ref.current.hue2 < hue2) ref.current.hue2 += 0.001;
-        if (ref.current.speed > speed) ref.current.speed -= 0.0005;
+        if (ref.current.hue1 > hue1) ref.current.hue1 -= 0.005;
+        if (ref.current.hue2 < hue2) ref.current.hue2 += 0.005;
+        // if (ref.current.speed > speed) ref.current.speed -= 0.0005;
       }
     }
   });
+
+  // useEffect(() => {
+  //   if (ref) {
+  //     setInterval(() => {
+  //       console.log("speed:", ref.current.speed);
+  //       console.log("hue1:", ref.current.hue1);
+  //       console.log("hue2:", ref.current.hue2);
+  //     }, 500);
+  //   }
+  // }, [ref]);
+
+  useEffect(() => {
+    console.log("isPageChanging :", isPageChanging);
+  }, [isPageChanging]);
 
   return (
     <mesh position={[0, 0, -5]}>

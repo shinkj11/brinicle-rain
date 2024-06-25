@@ -1,3 +1,5 @@
+"use client";
+
 import { Canvas } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -6,12 +8,14 @@ interface CanvasWrapperProps {
   children?: React.ReactNode;
   zIndex?: number;
   timeoutSec?: number;
+  isPageChanging?: boolean;
 }
 
 const CanvasWrapper: React.FC<CanvasWrapperProps> = ({
   children,
   zIndex = 0,
   timeoutSec = 0,
+  isPageChanging = false,
 }) => {
   const [show, setShow] = useState<boolean>(false);
 
@@ -20,6 +24,10 @@ const CanvasWrapper: React.FC<CanvasWrapperProps> = ({
       setShow(true);
     }, timeoutSec);
   }, []);
+
+  useEffect(() => {
+    setShow(false);
+  }, [isPageChanging]);
   return (
     <StyledCanvasWrapper zIndex={zIndex} show={show}>
       <Canvas>{children}</Canvas>

@@ -106,7 +106,7 @@ const MainObj: React.FC<MainObjProps> = ({ isRenderer = false }) => {
   const getObjPosition = () =>
     three.size.width < 600
       ? new THREE.Vector3(0.2, 0.3, 0)
-      : new THREE.Vector3(1, -1, 0);
+      : new THREE.Vector3(1, -0.5, 0);
 
   return (
     <>

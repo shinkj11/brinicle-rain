@@ -1,0 +1,25 @@
+"use client";
+
+import { RecoilRoot } from "recoil";
+import BackGroundObj from "./components/3d/BackGroundObj";
+import CanvasWrapper from "./components/3d/CanvasWrapper";
+
+const Template = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
+  // const isPageChanging =
+  return (
+    <RecoilRoot>
+      <CanvasWrapper>
+        <BackGroundObj
+        // isPageChanging={isPageChanging}
+        />
+      </CanvasWrapper>
+      {children}
+    </RecoilRoot>
+  );
+};
+
+export default Template;
