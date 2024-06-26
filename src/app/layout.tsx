@@ -9,6 +9,17 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "BRINICLE RAIN",
   description: "Blessed by the glowless starlights",
+  openGraph: {
+    title: "BRINICLE RAIN",
+    description: "Blessed by the glowless starlights",
+    siteName: "BRINICLE RAIN",
+    locale: "ko_KR",
+    type: "website",
+    url: "https://www.briniclerain.com",
+    // images: {
+    //   // url: OG_IMAGE,
+    // },
+  },
 };
 
 export default function RootLayout({

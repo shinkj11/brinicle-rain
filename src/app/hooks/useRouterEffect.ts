@@ -16,10 +16,9 @@ export const useRouterEffect = () => {
 
     startTransition(async () => {
       setPageState((org) => ({ ...org, isPageChanging: true }));
-      router.prefetch(path);
       await delayFunction(delay);
-      await delayFunction(500);
       router.push(path);
+      await delayFunction(500);
       setPageState((org) => ({ ...org, isPageChanging: false }));
     });
   };

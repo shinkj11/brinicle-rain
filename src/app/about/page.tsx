@@ -6,6 +6,8 @@ import { media } from "../lib/media";
 import Typo from "../components/Typo";
 import { useCustomMedia } from "../hooks/useCustomMedia";
 import { useRouterEffect } from "../hooks/useRouterEffect";
+import picBig from "../../../public/members.jpg";
+import picSmall from "../../../public/members2.jpg";
 
 const About = () => {
   const { isSmall } = useCustomMedia();
@@ -13,11 +15,11 @@ const About = () => {
   return (
     <MainWrapper>
       <StyledImage
-        src={isSmall ? "/members2.jpg" : "/members.jpg"}
-        width={955}
-        height={344}
+        src={isSmall ? picSmall : picBig}
         alt="members"
         layout="responsive"
+        priority={true}
+        placeholder={"blur"}
         show={show}
       />
       <StyledSection>
@@ -63,7 +65,7 @@ const About = () => {
 const MainWrapper = styled.div`
   position: relative;
   width: 955px;
-  height: 100vh;
+  height: 100svh;
   margin: 0 auto;
   z-index: 100;
   display: flex;

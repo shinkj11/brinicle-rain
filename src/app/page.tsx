@@ -89,9 +89,6 @@ const Main = styled.main`
   align-items: center;
   /* padding: 0 10vw; */
   /* min-height: 100vh; */
-  ${media.small`
-    height: 90vh;
-  `}
 `;
 
 const TextWrapper = styled.div`
@@ -100,6 +97,9 @@ const TextWrapper = styled.div`
   height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+  ${media.small`
+    height: 90svh;
+  `}
 `;
 
 const TitleWrapper = styled.div<{ gap?: string }>`
