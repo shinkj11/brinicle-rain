@@ -18,6 +18,10 @@ const typoTypeMap = {
     font: interLight,
     fontSize: "30px",
   },
+  body1Small: {
+    font: interLight,
+    fontSize: "2vh",
+  },
   title: {
     font: bebasRegular,
     fontSize: "20vmin",
@@ -52,7 +56,7 @@ const typoTypeMap = {
   },
   koreanBodySmall: {
     font: notoSansRegular,
-    fontSize: "20px",
+    fontSize: "2vh",
   },
 };
 
