@@ -14,6 +14,10 @@ const notoSansBold = Noto_Sans_KR({ weight: "700", subsets: ["latin"] });
 const notoSansRegular = Noto_Sans_KR({ weight: "400", subsets: ["latin"] });
 
 const typoTypeMap = {
+  body0: {
+    font: interBold,
+    fontSize: "30px",
+  },
   body1: {
     font: interLight,
     fontSize: "30px",
@@ -143,6 +147,7 @@ const StyledTypo = styled.div<StyledTypoProps>`
   mix-blend-mode: difference;
   color: #ffffff;
   line-height: 1;
+  /* white-space: pre-line; */
   font-size: ${({ fontSize }) => fontSize};
   ${({ cursorPointer }) => cursorPointer && "cursor: pointer;"}
   ${({ isTrans }) => isTrans && transition}

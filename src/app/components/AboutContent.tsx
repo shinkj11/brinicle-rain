@@ -13,7 +13,7 @@ const AboutContent = () => {
       <TypoWrapper>
         <TypoRow alignItems="flex-start">
           <Typo
-            type={isSmall ? "header1Small" : "body1"}
+            type={isSmall ? "header1Small" : "header1"}
             show={show}
             transDirection="right"
           >
@@ -29,7 +29,7 @@ const AboutContent = () => {
         </TypoRow>
         <TypoRow alignItems="flex-start">
           <Typo
-            type={isSmall ? "header1Small" : "body1"}
+            type={isSmall ? "header1Small" : "header1"}
             show={show}
             transDirection="right"
           >
@@ -50,7 +50,7 @@ const AboutContent = () => {
       <TypoWrapper>
         <TypoRow alignItems="flex-end">
           <Typo
-            type={isSmall ? "header1Small" : "body1"}
+            type={isSmall ? "header1Small" : "header1"}
             show={show}
             transDirection="left"
           >

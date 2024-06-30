@@ -17,12 +17,26 @@ export default function Home() {
   const [titleShow, setTitleShow] = useState<boolean>(false);
   const [isAboutClicked, setIsAboutClicked] = useState<boolean>(false);
 
-  const onAboutClick = () => {
-    setIsAboutClicked(true);
+  const menuClickSideEffect = () => {
     setTitleShow(false);
     setTitleShow2(false);
+  };
+
+  const onAboutClick = () => {
+    menuClickSideEffect();
     push("/about", 2000);
   };
+
+  const onDiscographyClick = () => {
+    menuClickSideEffect();
+    push("/discography", 2000);
+  };
+
+  const onLiveScheduleClick = () => {
+    menuClickSideEffect();
+    push("/schedule", 2000);
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setTitleShow2(true);
@@ -68,12 +82,23 @@ export default function Home() {
               ABOUT
             </MenuText>
             <MenuText
-              onClick={onAboutClick}
+              onClick={onDiscographyClick}
               type={"subTitle"}
               show={titleShow2}
               isClicked={isAboutClicked}
+              cursorPointer
             >
               DISCOGRAPHY
+            </MenuText>
+            <MenuText
+              onClick={onLiveScheduleClick}
+              type={"subTitle"}
+              transDirection={"bottom"}
+              show={titleShow2}
+              isClicked={isAboutClicked}
+              cursorPointer
+            >
+              LIVE SCHEDULES
             </MenuText>
           </TitleWrapper>
         </TextWrapper>

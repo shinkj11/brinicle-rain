@@ -41,13 +41,14 @@ const About = () => {
 const MainWrapper = styled.div`
   position: relative;
   width: 955px;
-  height: 100svh;
+  height: calc(100svh - 100px);
   margin: 0 auto;
   z-index: 100;
   display: flex;
   flex-direction: column;
   ${media.small`
     width: 90%;
+    height: calc(100svh - 70px);
   `}
 `;
 

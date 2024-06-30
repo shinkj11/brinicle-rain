@@ -53,8 +53,21 @@ const Header = () => {
             >
               ABOUT
             </Typo>
-            <Typo show={show} type="header2" cursorPointer>
+            <Typo
+              onClick={() => push("/discography", 1000)}
+              show={show}
+              type="header2"
+              cursorPointer
+            >
               DISCOGRAPHY
+            </Typo>
+            <Typo
+              onClick={() => push("/schedule", 1000)}
+              show={show}
+              type="header2"
+              cursorPointer
+            >
+              LIVE SCHEDULES
             </Typo>
           </>
         )}
