@@ -15,14 +15,14 @@ const AboutContent = () => {
           <Typo
             type={isSmall ? "header1Small" : "header1"}
             show={show}
-            transDirection="right"
+            transDirection="left"
           >
             GENRE
           </Typo>
           <Typo
             type={isSmall ? "body1Small" : "body1"}
             show={show}
-            transDirection="right"
+            transDirection="left"
           >
             METAL CORE
           </Typo>
@@ -31,14 +31,14 @@ const AboutContent = () => {
           <Typo
             type={isSmall ? "header1Small" : "header1"}
             show={show}
-            transDirection="right"
+            transDirection="left"
           >
             ORIGIN
           </Typo>
           <Typo
             type={isSmall ? "body1Small" : "body1"}
             show={show}
-            transDirection="right"
+            transDirection="left"
           >
             SOUTH KOREA
           </Typo>
@@ -52,44 +52,44 @@ const AboutContent = () => {
           <Typo
             type={isSmall ? "header1Small" : "header1"}
             show={show}
-            transDirection="left"
+            transDirection="right"
           >
             MEMBER
           </Typo>
           <Typo
             type={isSmall ? "body1Small" : "body1"}
             show={show}
-            transDirection="left"
+            transDirection="right"
           >
-            Seunggyun Park(Vocal){" "}
+            Seunggyun Park(Vocal)
           </Typo>
           <Typo
             type={isSmall ? "body1Small" : "body1"}
             show={show}
-            transDirection="left"
+            transDirection="right"
           >
-            Sangim Han(Guitar){" "}
+            Sangim Han(Guitar)
           </Typo>
           <Typo
             type={isSmall ? "body1Small" : "body1"}
             show={show}
-            transDirection="left"
+            transDirection="right"
           >
             Jongsoo Lee(Guitar)
           </Typo>
           <Typo
             type={isSmall ? "body1Small" : "body1"}
             show={show}
-            transDirection="left"
+            transDirection="right"
           >
-            Kyeongjune Shin(Bass){" "}
+            Kyeongjune Shin(Bass)
           </Typo>
           <Typo
             type={isSmall ? "body1Small" : "body1"}
             show={show}
-            transDirection="left"
+            transDirection="right"
           >
-            Youngwoo Lee(Drum){" "}
+            Youngwoo Lee(Drum)
           </Typo>
         </TypoRow>
       </TypoWrapper>
