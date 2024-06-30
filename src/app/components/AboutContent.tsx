@@ -12,7 +12,11 @@ const AboutContent = () => {
     <StyledSection>
       <TypoWrapper>
         <TypoRow alignItems="flex-start">
-          <Typo type={"header1"} show={show} transDirection="right">
+          <Typo
+            type={isSmall ? "header1Small" : "body1"}
+            show={show}
+            transDirection="right"
+          >
             GENRE
           </Typo>
           <Typo
@@ -24,7 +28,11 @@ const AboutContent = () => {
           </Typo>
         </TypoRow>
         <TypoRow alignItems="flex-start">
-          <Typo type={"header1"} show={show} transDirection="right">
+          <Typo
+            type={isSmall ? "header1Small" : "body1"}
+            show={show}
+            transDirection="right"
+          >
             ORIGIN
           </Typo>
           <Typo
@@ -37,11 +45,15 @@ const AboutContent = () => {
         </TypoRow>
       </TypoWrapper>
       {!isSmall && (
-        <StyledImage src={"./logo.svg"} alt={"logo"} width={100} height={100} />
+        <StyledImage src={"./logo.svg"} alt={"logo"} width={120} height={120} />
       )}
       <TypoWrapper>
         <TypoRow alignItems="flex-end">
-          <Typo type={"header1"} show={show} transDirection="left">
+          <Typo
+            type={isSmall ? "header1Small" : "body1"}
+            show={show}
+            transDirection="left"
+          >
             MEMBER
           </Typo>
           <Typo
@@ -95,7 +107,6 @@ const StyledSection = styled.section`
   height: 100%;
   top: -5px;
   ${media.small`
-    top: 20px;
     flex-direction: column;
   `}
   text-align: justify;
@@ -109,6 +120,7 @@ const TypoWrapper = styled.div`
   width: 360px;
   ${media.small`
     width: auto;
+    gap: 1.5vh;
   `}
 `;
 

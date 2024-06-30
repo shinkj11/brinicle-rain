@@ -56,7 +56,7 @@ const StyledSection = styled.section`
   gap: 30px;
   top: -5px;
   ${media.small`
-    top: 20px;
+    /* top: 20px; */
     gap: 2vh;
   `}
   text-align: justify;

@@ -34,6 +34,10 @@ const typoTypeMap = {
     font: interBold,
     fontSize: "60px",
   },
+  header1Small: {
+    font: interBold,
+    fontSize: "6vh",
+  },
   header2: {
     font: bebasRegular,
     fontSize: "64px",
